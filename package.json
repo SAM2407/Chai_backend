@@ -2,14 +2,20 @@
   "name": "chaiaurbackend",
   "version": "1.0.0",
   "description": "a backend learning project from chai and code channel-from youtube",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "Dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "keywords": [
     "javascripit",
     "backend"
   ],
   "author": "Samman Gond",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
