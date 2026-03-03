@@ -23,25 +23,39 @@
     }
 })() */
   import dotenv from "dotenv";
-  import connectDB from   "./db/index.js";
-  dotenv.config({
-    path:'./env'
+   dotenv.config({
+    path:'./.env'
   })
-  //if we have to use this method then we have to write thid in package.json file
-  //in the script section "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js
-    //we can also use this method to connect to the database
+  // import connectDB from   "./db/index.js";
+ 
+  // //if we have to use this method then we have to write thid in package.json file
+  // //in the script section "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js
+  //   //we can also use this method to connect to the database
 
 
-  connectDB() 
+  // connectDB() 
+  // .then(() => {
+  //   app.listen(process.env.PORT || 3000, () => {
+  //     console.log(`Server is running on port ${process.env.PORT || 3000}`);
+  //   });
+
+  // })
+  // .catch((error) => {
+  //   console.error("Database connection failed:", error);
+  //   process.exit(1); // Exit the process with failure
+  // });
+  
+  import connectDB from "./db/index.js";
+import app from "./app.js"; // assuming you have express app exported
+
+connectDB()
   .then(() => {
     app.listen(process.env.PORT || 3000, () => {
-      console.log(`Server is running on port ${process.env.PORT || 3000}`);
+      console.log(`Server running on port ${process.env.PORT || 3000}`);
     });
-
   })
   .catch((error) => {
     console.error("Database connection failed:", error);
-    process.exit(1); // Exit the process with failure
+    process.exit(1);
   });
-  
 
